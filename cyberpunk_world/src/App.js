@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Scene from './scene.js';
+import Scene from './scene360.js';
 
 const App = () => {
   return (
