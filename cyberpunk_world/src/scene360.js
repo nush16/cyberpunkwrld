@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import cyberpunkVideo from './cyberpunk_video_4k.mp4';
 
-const Scene = () => {
+const Scene = ({ speed }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -43,6 +43,7 @@ const Scene = () => {
     videoElement.muted = true;
     videoElement.playsInline = true;
     videoElement.crossOrigin = 'anonymous';
+    videoElement.playbackRate = 0.1; // Set the playback rate
     videoElement.play();
     const texture = new THREE.VideoTexture(videoElement);
 
@@ -102,7 +103,7 @@ const Scene = () => {
       container.removeChild(renderer.domElement);
       renderer.dispose();
     };
-  }, []);
+  }, [speed]);
 
   return <div ref={containerRef} />;
 };
